@@ -29,7 +29,9 @@ const state = {
         },
         crop: {
             aspectRatio: NaN,
-            format: 'original'
+            format: 'original',
+            targetWidth: null,
+            targetHeight: null
         }
     }
 };
@@ -438,6 +440,10 @@ function initCropping() {
             const aspectRatio = ratio === 'free' ? NaN : parseFloat(ratio);
             state.settings.crop.aspectRatio = aspectRatio;
 
+            // Clear target dimensions when using aspect ratio only
+            state.settings.crop.targetWidth = null;
+            state.settings.crop.targetHeight = null;
+
             if (state.cropper) {
                 state.cropper.setAspectRatio(aspectRatio);
             }
@@ -448,6 +454,10 @@ function initCropping() {
         btn.addEventListener('click', () => {
             const width = parseInt(btn.dataset.width);
             const height = parseInt(btn.dataset.height);
+
+            // Store target dimensions for output
+            state.settings.crop.targetWidth = width;
+            state.settings.crop.targetHeight = height;
 
             if (state.cropper) {
                 const ratio = width / height;
@@ -499,6 +509,8 @@ function resetCropWorkspace() {
         btn.classList.toggle('active', btn.dataset.ratio === 'free');
     });
     state.settings.crop.aspectRatio = NaN;
+    state.settings.crop.targetWidth = null;
+    state.settings.crop.targetHeight = null;
 }
 
 function showCropWorkspace() {
@@ -549,7 +561,18 @@ async function applyCrop() {
             mimeType = `image/${format}`;
         }
 
-        const canvas = state.cropper.getCroppedCanvas();
+        // Get cropped canvas with target dimensions if specified
+        const canvasOptions = {
+            imageSmoothingEnabled: true,
+            imageSmoothingQuality: 'high'
+        };
+        
+        if (state.settings.crop.targetWidth && state.settings.crop.targetHeight) {
+            canvasOptions.width = state.settings.crop.targetWidth;
+            canvasOptions.height = state.settings.crop.targetHeight;
+        }
+
+        const canvas = state.cropper.getCroppedCanvas(canvasOptions);
 
         const blob = await new Promise(resolve => {
             canvas.toBlob(resolve, mimeType, 0.92);
