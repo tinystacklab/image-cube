@@ -1,0 +1,30 @@
+/* ============================================
+   Local Fonts
+   Inter for Latin, System fonts for CJK
+   ============================================ */
+
+/* Inter - Latin (Variable weight) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('./inter-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* System font stack for optimal performance and native feel */
+:root {
+    /* Primary font stack: Inter for Latin, system fonts for CJK */
+    --font-family: 'Inter',
+        /* macOS/iOS CJK fonts */
+        'PingFang SC', 'PingFang TC', 'Hiragino Sans GB',
+        /* Windows CJK fonts */
+        'Microsoft YaHei', 'Microsoft JhengHei',
+        /* Linux CJK fonts */
+        'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Source Han Sans SC',
+        /* System fallbacks */
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        /* Generic fallback */
+        sans-serif;
+}

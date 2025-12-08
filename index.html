@@ -8,11 +8,7 @@
         content="Free online image processing tool - Supports lossless compression, format conversion, smart cropping. All processing done in browser for privacy.">
     <meta name="keywords" content="image compression,image conversion,image cropping,online tool,free,privacy">
     <title>Image Cube - Free Online Image Processing Tool</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="/src/fonts/fonts.css">
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 
@@ -309,14 +305,27 @@
                                 <label class="option-label" data-i18n="crop.presets">Common Sizes</label>
                                 <div class="preset-sizes">
                                     <button class="preset-size-btn" data-width="800" data-height="600">800×600</button>
+                                    <button class="preset-size-btn" data-width="1280"
+                                        data-height="720">1280×720</button>
                                     <button class="preset-size-btn" data-width="1920"
                                         data-height="1080">1920×1080</button>
                                     <button class="preset-size-btn" data-width="1080"
                                         data-height="1080">1080×1080</button>
+                                </div>
+                            </div>
+                            <div class="option-group">
+                                <label class="option-label" data-i18n="crop.idPhotos">ID Photo Sizes</label>
+                                <div class="preset-sizes">
                                     <button class="preset-size-btn" data-width="295" data-height="413"
-                                        data-i18n="crop.presets.1inch">1-inch Photo</button>
+                                        data-i18n="crop.presets.1inch">1-inch (25×35mm)</button>
                                     <button class="preset-size-btn" data-width="413" data-height="579"
-                                        data-i18n="crop.presets.2inch">2-inch Photo</button>
+                                        data-i18n="crop.presets.2inch">2-inch (35×49mm)</button>
+                                    <button class="preset-size-btn" data-width="413" data-height="531"
+                                        data-i18n="crop.presets.passport">Passport (35×45mm)</button>
+                                    <button class="preset-size-btn" data-width="390" data-height="567"
+                                        data-i18n="crop.presets.visa">Visa (33×48mm)</button>
+                                    <button class="preset-size-btn" data-width="600" data-height="600"
+                                        data-i18n="crop.presets.usVisa">US Visa (51×51mm)</button>
                                 </div>
                             </div>
                             <div class="option-group">
@@ -349,7 +358,7 @@
         <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-content">
-                <p data-i18n="footer.copyright">© 2025 Image Cube - Free Image Processing Tool Powered by Cloudflare</p>
+                <p data-i18n="footer.copyright">© 2025 Image Cube - Professional Online Image Processing Tool</p>
                 <p class="footer-note" data-i18n="footer.note">All processing is done locally in your browser. Your
                     images are never uploaded.</p>
             </div>

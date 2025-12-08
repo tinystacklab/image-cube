@@ -60,8 +60,12 @@ const translations = {
         'crop.ratio': 'Aspect Ratio',
         'crop.ratio.free': 'Free',
         'crop.presets': 'Common Sizes',
-        'crop.presets.1inch': '1-inch Photo',
-        'crop.presets.2inch': '2-inch Photo',
+        'crop.idPhotos': 'ID Photo Sizes',
+        'crop.presets.1inch': '1-inch (25×35mm)',
+        'crop.presets.2inch': '2-inch (35×49mm)',
+        'crop.presets.passport': 'Passport (35×45mm)',
+        'crop.presets.visa': 'Visa (33×48mm)',
+        'crop.presets.usVisa': 'US Visa (51×51mm)',
         'crop.format': 'Output Format',
         'crop.format.original': 'Keep Original',
         'crop.selectOther': 'Select Other Image',
@@ -87,7 +91,7 @@ const translations = {
         'processing.text': 'Processing...',
 
         // Footer
-        'footer.copyright': '© 2025 Image Cube - Free Image Processing Tool Powered by Cloudflare',
+        'footer.copyright': '© 2025 Image Cube - Professional Online Image Processing Tool',
         'footer.note': 'All processing is done locally in your browser. Your images are never uploaded.'
     },
 
@@ -151,8 +155,12 @@ const translations = {
         'crop.ratio': '裁切比例',
         'crop.ratio.free': '自由',
         'crop.presets': '常用尺寸',
-        'crop.presets.1inch': '1寸照片',
-        'crop.presets.2inch': '2寸照片',
+        'crop.idPhotos': '证件照尺寸',
+        'crop.presets.1inch': '1寸 (25×35mm)',
+        'crop.presets.2inch': '2寸 (35×49mm)',
+        'crop.presets.passport': '护照 (35×45mm)',
+        'crop.presets.visa': '签证 (33×48mm)',
+        'crop.presets.usVisa': '美国签证 (51×51mm)',
         'crop.format': '输出格式',
         'crop.format.original': '保持原格式',
         'crop.selectOther': '选择其他图片',
@@ -178,7 +186,7 @@ const translations = {
         'processing.text': '正在处理...',
 
         // Footer
-        'footer.copyright': '© 2025 图片魔方 - 基于 Cloudflare 部署的免费图片处理工具',
+        'footer.copyright': '© 2025 图片魔方 - 专业的在线图片处理工具',
         'footer.note': '所有处理均在浏览器本地完成，不会上传您的图片'
     },
 
@@ -242,8 +250,12 @@ const translations = {
         'crop.ratio': '裁切比例',
         'crop.ratio.free': '自由',
         'crop.presets': '常用尺寸',
-        'crop.presets.1inch': '1吋照片',
-        'crop.presets.2inch': '2吋照片',
+        'crop.idPhotos': '證件照尺寸',
+        'crop.presets.1inch': '1吋 (25×35mm)',
+        'crop.presets.2inch': '2吋 (35×49mm)',
+        'crop.presets.passport': '護照 (35×45mm)',
+        'crop.presets.visa': '簽證 (33×48mm)',
+        'crop.presets.usVisa': '美國簽證 (51×51mm)',
         'crop.format': '輸出格式',
         'crop.format.original': '保持原格式',
         'crop.selectOther': '選擇其他圖片',
@@ -269,7 +281,7 @@ const translations = {
         'processing.text': '正在處理...',
 
         // Footer
-        'footer.copyright': '© 2025 圖片魔方 - 基於 Cloudflare 部署的免費圖片處理工具',
+        'footer.copyright': '© 2025 圖片魔方 - 專業的線上圖片處理工具',
         'footer.note': '所有處理均在瀏覽器本地完成，不會上傳您的圖片'
     }
 };
@@ -346,9 +358,9 @@ class I18n {
         const currentDisplay = document.getElementById('current-lang');
         if (currentDisplay) {
             const langNames = {
-                'en': 'EN',
-                'zh-CN': '简',
-                'zh-TW': '繁'
+                'en': 'English',
+                'zh-CN': '简体中文',
+                'zh-TW': '繁體中文'
             };
             currentDisplay.textContent = langNames[this.currentLang];
         }

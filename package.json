@@ -1,7 +1,7 @@
 {
     "name": "image-cube",
     "version": "1.0.0",
-    "description": "Image processing tool with compression, format conversion, and cropping",
+    "description": "Image Cute - Image processing tool with compression, format conversion, and cropping",
     "type": "module",
     "scripts": {
         "dev": "vite",
