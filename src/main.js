@@ -2,6 +2,10 @@
 import imageCompression from 'browser-image-compression';
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.css';
+import { I18n } from './i18n.js';
+
+// Initialize i18n
+const i18n = new I18n();
 
 // ============================================
 // State Management
@@ -610,13 +614,72 @@ function addResultItem(container, result, type) {
 // Initialization
 // ============================================
 function init() {
+    initLanguage();
     initNavigation();
     initDragDrop();
     initCompression();
     initConversion();
     initCropping();
 
-    console.log('🎨 图片魔方已加载');
+    console.log('🎨 Image Cube loaded');
+}
+
+// ============================================
+// Language Switching
+// ============================================
+function initLanguage() {
+    // Apply initial language
+    i18n.updatePage();
+
+    // Language toggle button
+    const langToggle = document.getElementById('lang-toggle');
+    const langSwitcher = document.querySelector('.lang-switcher');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    if (langToggle) {
+        langToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langSwitcher.classList.toggle('open');
+        });
+    }
+
+    // Language options
+    langOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const lang = option.dataset.lang;
+            i18n.setLanguage(lang);
+            langSwitcher.classList.remove('open');
+
+            // Update active state
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+        });
+
+        // Set initial active state
+        if (option.dataset.lang === i18n.currentLang) {
+            option.classList.add('active');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!langSwitcher.contains(e.target)) {
+            langSwitcher.classList.remove('open');
+        }
+    });
+
+    // Update logo text based on language
+    i18n.onLanguageChange((lang) => {
+        const logoText = document.querySelector('.logo-text');
+        if (logoText) {
+            const logoNames = {
+                'en': 'Image Cube',
+                'zh-CN': '图片魔方',
+                'zh-TW': '圖片魔方'
+            };
+            logoText.textContent = logoNames[lang];
+        }
+    });
 }
 
 // Start the application

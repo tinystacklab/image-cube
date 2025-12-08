@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="免费在线图片处理工具 - 支持无损压缩、格式转换、智能裁切，完全在浏览器端处理，保护您的隐私">
-    <meta name="keywords" content="图片压缩,图片转换,图片裁切,在线工具,免费,隐私保护">
-    <title>图片魔方 - 免费在线图片处理工具</title>
+    <meta name="description"
+        content="Free online image processing tool - Supports lossless compression, format conversion, smart cropping. All processing done in browser for privacy.">
+    <meta name="keywords" content="image compression,image conversion,image cropping,online tool,free,privacy">
+    <title>Image Cube - Free Online Image Processing Tool</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
@@ -21,13 +23,25 @@
             <div class="nav-container">
                 <div class="logo">
                     <span class="logo-icon">🎨</span>
-                    <span class="logo-text">图片魔方</span>
+                    <span class="logo-text">Image Cube</span>
                 </div>
                 <div class="nav-links">
-                    <a href="#home" class="nav-link active" data-tab="home">首页</a>
-                    <a href="#compress" class="nav-link" data-tab="compress">压缩</a>
-                    <a href="#convert" class="nav-link" data-tab="convert">转换</a>
-                    <a href="#crop" class="nav-link" data-tab="crop">裁切</a>
+                    <a href="#home" class="nav-link active" data-tab="home" data-i18n="nav.home">Home</a>
+                    <a href="#compress" class="nav-link" data-tab="compress" data-i18n="nav.compress">Compress</a>
+                    <a href="#convert" class="nav-link" data-tab="convert" data-i18n="nav.convert">Convert</a>
+                    <a href="#crop" class="nav-link" data-tab="crop" data-i18n="nav.crop">Crop</a>
+                </div>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="lang-toggle">
+                        <span id="current-lang">EN</span>
+                        <span class="lang-arrow">▼</span>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="zh-CN">简体中文</button>
+                        <button class="lang-option" data-lang="zh-TW">繁體中文</button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -44,21 +58,24 @@
                     </div>
                     <div class="hero-content">
                         <div class="hero-badge-top">
-                            <span class="badge-glow">✨ 100% 免费 · 无需注册 · 隐私安全</span>
+                            <span class="badge-glow" data-i18n="hero.badge">✨ 100% Free · No Registration · Privacy
+                                Safe</span>
                         </div>
                         <h1 class="hero-title">
-                            <span class="gradient-text">智能图片处理</span>
+                            <span class="gradient-text" data-i18n="hero.title">Smart Image Processing</span>
                             <br>
-                            <span class="hero-title-sub">一站式解决方案</span>
+                            <span class="hero-title-sub" data-i18n="hero.subtitle">All-in-One Solution</span>
                         </h1>
-                        <p class="hero-subtitle">无损压缩 · 格式转换 · 精准裁切</p>
+                        <p class="hero-subtitle" data-i18n="hero.tagline">Lossless Compression · Format Conversion ·
+                            Precise Cropping</p>
                         <p class="hero-description">
-                            所有处理均在浏览器本地完成，图片不会上传到任何服务器<br>
-                            您的隐私，我们认真对待
+                            <span data-i18n="hero.description">All processing is done locally in your browser. Images
+                                never leave your device.</span><br>
+                            <span data-i18n="hero.description2">Your privacy, we take it seriously.</span>
                         </p>
                         <div class="hero-cta">
                             <button class="btn btn-hero" data-goto="compress">
-                                <span>🚀</span> 立即开始
+                                <span>🚀</span> <span data-i18n="hero.cta">Get Started</span>
                             </button>
                         </div>
                     </div>
@@ -69,27 +86,33 @@
                             <div class="feature-icon-wrapper">
                                 <div class="feature-icon">🗜️</div>
                             </div>
-                            <h3>智能压缩</h3>
-                            <p>先进的压缩算法，在保持视觉质量的同时大幅减小文件大小，支持批量处理</p>
-                            <button class="feature-btn" data-goto="compress">开始压缩 →</button>
+                            <h3 data-i18n="feature.compress.title">Smart Compression</h3>
+                            <p data-i18n="feature.compress.desc">Advanced compression algorithms maintain visual quality
+                                while significantly reducing file size. Batch processing supported.</p>
+                            <button class="feature-btn" data-goto="compress" data-i18n="feature.compress.btn">Start
+                                Compressing →</button>
                         </div>
                         <div class="feature-card">
                             <div class="feature-glow"></div>
                             <div class="feature-icon-wrapper">
                                 <div class="feature-icon">🔄</div>
                             </div>
-                            <h3>格式转换</h3>
-                            <p>支持 JPG、PNG、WebP、GIF 等多种格式互转，一键转换为最优格式</p>
-                            <button class="feature-btn" data-goto="convert">开始转换 →</button>
+                            <h3 data-i18n="feature.convert.title">Format Conversion</h3>
+                            <p data-i18n="feature.convert.desc">Convert between JPG, PNG, WebP, GIF and more. One-click
+                                conversion to optimal format.</p>
+                            <button class="feature-btn" data-goto="convert" data-i18n="feature.convert.btn">Start
+                                Converting →</button>
                         </div>
                         <div class="feature-card">
                             <div class="feature-glow"></div>
                             <div class="feature-icon-wrapper">
                                 <div class="feature-icon">✂️</div>
                             </div>
-                            <h3>精准裁切</h3>
-                            <p>自由裁切或选择预设比例，支持1寸、2寸证件照等常用尺寸</p>
-                            <button class="feature-btn" data-goto="crop">开始裁切 →</button>
+                            <h3 data-i18n="feature.crop.title">Precise Cropping</h3>
+                            <p data-i18n="feature.crop.desc">Free crop or choose preset ratios. Supports passport photos
+                                and common sizes.</p>
+                            <button class="feature-btn" data-goto="crop" data-i18n="feature.crop.btn">Start Cropping
+                                →</button>
                         </div>
                     </div>
 
@@ -97,24 +120,24 @@
                         <div class="stat-item">
                             <div class="stat-icon">⚡</div>
                             <div class="stat-content">
-                                <span class="stat-value">极速</span>
-                                <span class="stat-label">本地处理</span>
+                                <span class="stat-value" data-i18n="stats.speed">Fast</span>
+                                <span class="stat-label" data-i18n="stats.speed.label">Local Processing</span>
                             </div>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
                             <div class="stat-icon">🔒</div>
                             <div class="stat-content">
-                                <span class="stat-value">100%</span>
-                                <span class="stat-label">隐私保护</span>
+                                <span class="stat-value" data-i18n="stats.privacy">100%</span>
+                                <span class="stat-label" data-i18n="stats.privacy.label">Privacy Protected</span>
                             </div>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
                             <div class="stat-icon">💎</div>
                             <div class="stat-content">
-                                <span class="stat-value">永久</span>
-                                <span class="stat-label">免费使用</span>
+                                <span class="stat-value" data-i18n="stats.free">Forever</span>
+                                <span class="stat-label" data-i18n="stats.free.label">Free to Use</span>
                             </div>
                         </div>
                     </div>
@@ -126,37 +149,43 @@
                 <!-- 压缩工具 -->
                 <div id="compress" class="tool-panel">
                     <div class="tool-header">
-                        <h2 class="tool-title">🗜️ 图片压缩</h2>
-                        <p class="tool-description">智能压缩算法，在保持视觉质量的同时大幅减小文件大小</p>
+                        <h2 class="tool-title" data-i18n="compress.title">🗜️ Image Compression</h2>
+                        <p class="tool-description" data-i18n="compress.desc">Smart compression algorithm maintains
+                            visual quality while significantly reducing file size</p>
                     </div>
 
                     <div class="upload-area" id="compress-upload">
                         <div class="upload-content">
                             <div class="upload-icon">📁</div>
-                            <p class="upload-text">拖拽图片到这里，或点击选择文件</p>
-                            <p class="upload-hint">支持 JPG、PNG、WebP、GIF 格式</p>
+                            <p class="upload-text" data-i18n="upload.text">Drag images here, or click to select files
+                            </p>
+                            <p class="upload-hint" data-i18n="upload.hint.compress">Supports JPG, PNG, WebP, GIF formats
+                            </p>
                             <input type="file" id="compress-input" accept="image/*" multiple hidden>
-                            <button class="btn btn-primary upload-btn">选择图片</button>
+                            <button class="btn btn-primary upload-btn" data-i18n="upload.btn">Select Images</button>
                         </div>
                     </div>
 
                     <div class="options-panel" id="compress-options" style="display: none;">
                         <div class="option-group">
-                            <label class="option-label">压缩质量</label>
+                            <label class="option-label" data-i18n="compress.quality">Compression Quality</label>
                             <div class="slider-container">
                                 <input type="range" id="quality-slider" min="10" max="100" value="80" class="slider">
                                 <span id="quality-value" class="slider-value">80%</span>
                             </div>
                             <div class="quality-presets">
-                                <button class="preset-btn" data-quality="60">高压缩</button>
-                                <button class="preset-btn active" data-quality="80">推荐</button>
-                                <button class="preset-btn" data-quality="95">高质量</button>
+                                <button class="preset-btn" data-quality="60" data-i18n="compress.quality.high">High
+                                    Compression</button>
+                                <button class="preset-btn active" data-quality="80"
+                                    data-i18n="compress.quality.recommended">Recommended</button>
+                                <button class="preset-btn" data-quality="95" data-i18n="compress.quality.best">Best
+                                    Quality</button>
                             </div>
                         </div>
                         <div class="option-group">
-                            <label class="option-label">最大尺寸限制</label>
+                            <label class="option-label" data-i18n="compress.maxSize">Max Size Limit</label>
                             <div class="size-options">
-                                <button class="size-btn" data-size="0">无限制</button>
+                                <button class="size-btn" data-size="0" data-i18n="compress.noLimit">No Limit</button>
                                 <button class="size-btn active" data-size="1920">1920px</button>
                                 <button class="size-btn" data-size="1280">1280px</button>
                                 <button class="size-btn" data-size="800">800px</button>
@@ -166,10 +195,12 @@
 
                     <div class="result-area" id="compress-result" style="display: none;">
                         <div class="result-header">
-                            <h3>处理结果</h3>
+                            <h3 data-i18n="result.title">Processing Results</h3>
                             <div class="result-actions-header">
-                                <button class="btn btn-secondary" id="compress-reprocess">🔄 重新处理</button>
-                                <button class="btn btn-primary" id="compress-download-all">下载全部</button>
+                                <button class="btn btn-secondary" id="compress-reprocess"
+                                    data-i18n="result.reprocess">🔄 Reprocess</button>
+                                <button class="btn btn-primary" id="compress-download-all"
+                                    data-i18n="result.downloadAll">Download All</button>
                             </div>
                         </div>
                         <div class="result-list" id="compress-list"></div>
@@ -179,43 +210,46 @@
                 <!-- 转换工具 -->
                 <div id="convert" class="tool-panel">
                     <div class="tool-header">
-                        <h2 class="tool-title">🔄 格式转换</h2>
-                        <p class="tool-description">支持多种图片格式互转，满足不同场景需求</p>
+                        <h2 class="tool-title" data-i18n="convert.title">🔄 Format Conversion</h2>
+                        <p class="tool-description" data-i18n="convert.desc">Convert between multiple image formats for
+                            different use cases</p>
                     </div>
 
                     <div class="upload-area" id="convert-upload">
                         <div class="upload-content">
                             <div class="upload-icon">📁</div>
-                            <p class="upload-text">拖拽图片到这里，或点击选择文件</p>
-                            <p class="upload-hint">支持 JPG、PNG、WebP、GIF、BMP 格式</p>
+                            <p class="upload-text" data-i18n="upload.text">Drag images here, or click to select files
+                            </p>
+                            <p class="upload-hint" data-i18n="upload.hint.convert">Supports JPG, PNG, WebP, GIF, BMP
+                                formats</p>
                             <input type="file" id="convert-input" accept="image/*" multiple hidden>
-                            <button class="btn btn-primary upload-btn">选择图片</button>
+                            <button class="btn btn-primary upload-btn" data-i18n="upload.btn">Select Images</button>
                         </div>
                     </div>
 
                     <div class="options-panel" id="convert-options" style="display: none;">
                         <div class="option-group">
-                            <label class="option-label">目标格式</label>
+                            <label class="option-label" data-i18n="convert.format">Target Format</label>
                             <div class="format-options">
                                 <button class="format-btn active" data-format="webp">
                                     <span class="format-icon">🌐</span>
                                     <span class="format-name">WebP</span>
-                                    <span class="format-desc">体积最小</span>
+                                    <span class="format-desc" data-i18n="convert.webp.desc">Smallest Size</span>
                                 </button>
                                 <button class="format-btn" data-format="jpeg">
                                     <span class="format-icon">📷</span>
                                     <span class="format-name">JPEG</span>
-                                    <span class="format-desc">兼容性好</span>
+                                    <span class="format-desc" data-i18n="convert.jpeg.desc">Best Compatibility</span>
                                 </button>
                                 <button class="format-btn" data-format="png">
                                     <span class="format-icon">🖼️</span>
                                     <span class="format-name">PNG</span>
-                                    <span class="format-desc">支持透明</span>
+                                    <span class="format-desc" data-i18n="convert.png.desc">Supports Transparency</span>
                                 </button>
                             </div>
                         </div>
                         <div class="option-group">
-                            <label class="option-label">输出质量</label>
+                            <label class="option-label" data-i18n="convert.quality">Output Quality</label>
                             <div class="slider-container">
                                 <input type="range" id="convert-quality-slider" min="10" max="100" value="90"
                                     class="slider">
@@ -226,10 +260,12 @@
 
                     <div class="result-area" id="convert-result" style="display: none;">
                         <div class="result-header">
-                            <h3>处理结果</h3>
+                            <h3 data-i18n="result.title">Processing Results</h3>
                             <div class="result-actions-header">
-                                <button class="btn btn-secondary" id="convert-reprocess">🔄 重新处理</button>
-                                <button class="btn btn-primary" id="convert-download-all">下载全部</button>
+                                <button class="btn btn-secondary" id="convert-reprocess" data-i18n="result.reprocess">🔄
+                                    Reprocess</button>
+                                <button class="btn btn-primary" id="convert-download-all"
+                                    data-i18n="result.downloadAll">Download All</button>
                             </div>
                         </div>
                         <div class="result-list" id="convert-list"></div>
@@ -239,26 +275,29 @@
                 <!-- 裁切工具 -->
                 <div id="crop" class="tool-panel">
                     <div class="tool-header">
-                        <h2 class="tool-title">✂️ 图片裁切</h2>
-                        <p class="tool-description">精准裁切，支持多种预设比例和自由裁切</p>
+                        <h2 class="tool-title" data-i18n="crop.title">✂️ Image Cropping</h2>
+                        <p class="tool-description" data-i18n="crop.desc">Precise cropping with multiple preset ratios
+                            and free cropping</p>
                     </div>
 
                     <div class="upload-area" id="crop-upload">
                         <div class="upload-content">
                             <div class="upload-icon">📁</div>
-                            <p class="upload-text">拖拽图片到这里，或点击选择文件</p>
-                            <p class="upload-hint">支持 JPG、PNG、WebP 格式</p>
+                            <p class="upload-text" data-i18n="upload.text">Drag images here, or click to select files
+                            </p>
+                            <p class="upload-hint" data-i18n="upload.hint.crop">Supports JPG, PNG, WebP formats</p>
                             <input type="file" id="crop-input" accept="image/*" hidden>
-                            <button class="btn btn-primary upload-btn">选择图片</button>
+                            <button class="btn btn-primary upload-btn" data-i18n="upload.btn">Select Images</button>
                         </div>
                     </div>
 
                     <div class="crop-workspace" id="crop-workspace" style="display: none;">
                         <div class="crop-sidebar">
                             <div class="option-group">
-                                <label class="option-label">裁切比例</label>
+                                <label class="option-label" data-i18n="crop.ratio">Aspect Ratio</label>
                                 <div class="ratio-options">
-                                    <button class="ratio-btn active" data-ratio="free">自由</button>
+                                    <button class="ratio-btn active" data-ratio="free"
+                                        data-i18n="crop.ratio.free">Free</button>
                                     <button class="ratio-btn" data-ratio="1">1:1</button>
                                     <button class="ratio-btn" data-ratio="1.333">4:3</button>
                                     <button class="ratio-btn" data-ratio="1.778">16:9</button>
@@ -267,35 +306,39 @@
                                 </div>
                             </div>
                             <div class="option-group">
-                                <label class="option-label">常用尺寸</label>
+                                <label class="option-label" data-i18n="crop.presets">Common Sizes</label>
                                 <div class="preset-sizes">
                                     <button class="preset-size-btn" data-width="800" data-height="600">800×600</button>
                                     <button class="preset-size-btn" data-width="1920"
                                         data-height="1080">1920×1080</button>
                                     <button class="preset-size-btn" data-width="1080"
                                         data-height="1080">1080×1080</button>
-                                    <button class="preset-size-btn" data-width="295" data-height="413">1寸照片</button>
-                                    <button class="preset-size-btn" data-width="413" data-height="579">2寸照片</button>
+                                    <button class="preset-size-btn" data-width="295" data-height="413"
+                                        data-i18n="crop.presets.1inch">1-inch Photo</button>
+                                    <button class="preset-size-btn" data-width="413" data-height="579"
+                                        data-i18n="crop.presets.2inch">2-inch Photo</button>
                                 </div>
                             </div>
                             <div class="option-group">
-                                <label class="option-label">输出格式</label>
+                                <label class="option-label" data-i18n="crop.format">Output Format</label>
                                 <select id="crop-format" class="select-input">
-                                    <option value="original">保持原格式</option>
+                                    <option value="original" data-i18n="crop.format.original">Keep Original</option>
                                     <option value="jpeg">JPEG</option>
                                     <option value="png">PNG</option>
                                     <option value="webp">WebP</option>
                                 </select>
                             </div>
                             <div class="crop-actions">
-                                <button class="btn btn-secondary" id="crop-new">选择其他图片</button>
-                                <button class="btn btn-secondary" id="crop-reset">重置</button>
-                                <button class="btn btn-primary" id="crop-apply">裁切并下载</button>
+                                <button class="btn btn-secondary" id="crop-new" data-i18n="crop.selectOther">Select
+                                    Other Image</button>
+                                <button class="btn btn-secondary" id="crop-reset" data-i18n="crop.reset">Reset</button>
+                                <button class="btn btn-primary" id="crop-apply" data-i18n="crop.apply">Crop &
+                                    Download</button>
                             </div>
                         </div>
                         <div class="crop-preview-container">
                             <div class="crop-image-wrapper">
-                                <img id="crop-image" src="" alt="待裁切图片">
+                                <img id="crop-image" src="" alt="Image to crop">
                             </div>
                         </div>
                     </div>
@@ -306,8 +349,9 @@
         <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-content">
-                <p>© 2025 图片魔方 - 基于 Cloudflare 部署的免费图片处理工具</p>
-                <p class="footer-note">所有处理均在浏览器本地完成，不会上传您的图片</p>
+                <p data-i18n="footer.copyright">© 2025 Image Cube - Free Image Processing Tool Powered by Cloudflare</p>
+                <p class="footer-note" data-i18n="footer.note">All processing is done locally in your browser. Your
+                    images are never uploaded.</p>
             </div>
         </footer>
 
@@ -315,7 +359,7 @@
         <div class="processing-overlay" id="processing-overlay" style="display: none;">
             <div class="processing-content">
                 <div class="processing-spinner"></div>
-                <p class="processing-text">正在处理...</p>
+                <p class="processing-text" data-i18n="processing.text">Processing...</p>
                 <p class="processing-progress" id="processing-progress">0%</p>
             </div>
         </div>

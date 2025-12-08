@@ -1225,3 +1225,92 @@ h6 {
         padding: var(--space-lg);
     }
 }
+/* ============================================
+   Language Switcher
+   ============================================ */
+.lang-switcher {
+    position: relative;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: all var(--transition-normal);
+}
+
+.lang-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.lang-arrow {
+    font-size: 0.6rem;
+    transition: transform var(--transition-fast);
+}
+
+.lang-switcher.open .lang-arrow {
+    transform: rotate(180deg);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 120px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-normal);
+    z-index: 200;
+}
+
+.lang-switcher.open .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.lang-option:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.lang-option:last-child {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.lang-option:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.lang-option.active {
+    background: var(--gradient-primary);
+    color: white;
+}
