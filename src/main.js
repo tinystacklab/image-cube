@@ -631,6 +631,9 @@ function initLanguage() {
     // Apply initial language
     i18n.updatePage();
 
+    // Update logo text for initial language
+    updateLogoText(i18n.currentLang);
+
     // Language toggle button
     const langToggle = document.getElementById('lang-toggle');
     const langSwitcher = document.querySelector('.lang-switcher');
@@ -670,16 +673,21 @@ function initLanguage() {
 
     // Update logo text based on language
     i18n.onLanguageChange((lang) => {
-        const logoText = document.querySelector('.logo-text');
-        if (logoText) {
-            const logoNames = {
-                'en': 'Image Cube',
-                'zh-CN': '图片魔方',
-                'zh-TW': '圖片魔方'
-            };
-            logoText.textContent = logoNames[lang];
-        }
+        updateLogoText(lang);
     });
+}
+
+// Update logo text based on language
+function updateLogoText(lang) {
+    const logoText = document.querySelector('.logo-text');
+    if (logoText) {
+        const logoNames = {
+            'en': 'Image Cube',
+            'zh-CN': '图片魔方',
+            'zh-TW': '圖片魔方'
+        };
+        logoText.textContent = logoNames[lang] || logoNames['en'];
+    }
 }
 
 // Start the application
