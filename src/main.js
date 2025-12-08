@@ -89,26 +89,49 @@ async function downloadAllFiles(results) {
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const toolPanels = document.querySelectorAll('.tool-panel');
+    const toolsSection = document.querySelector('.tools-section');
+
+    function switchToTab(tabId) {
+        // Update nav links
+        navLinks.forEach(l => l.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-link[data-tab="${tabId}"]`);
+        if (activeLink) activeLink.classList.add('active');
+
+        // Handle home tab specially
+        if (tabId === 'home') {
+            document.getElementById('home').classList.add('active');
+            toolsSection.style.display = 'none';
+        } else {
+            document.getElementById('home').classList.remove('active');
+            toolsSection.style.display = 'block';
+
+            // Show the correct tool panel inside tools-section
+            toolPanels.forEach(panel => {
+                if (panel.id !== 'home') {
+                    panel.classList.toggle('active', panel.id === tabId);
+                }
+            });
+        }
+
+        state.currentTab = tabId;
+    }
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const tabId = link.dataset.tab;
-
-            // Update active states
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            toolPanels.forEach(panel => {
-                panel.classList.remove('active');
-                if (panel.id === tabId) {
-                    panel.classList.add('active');
-                }
-            });
-
-            state.currentTab = tabId;
+            switchToTab(link.dataset.tab);
         });
     });
+
+    // Handle "立即开始" and feature buttons
+    document.querySelectorAll('[data-goto]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchToTab(btn.dataset.goto);
+        });
+    });
+
+    // Initialize: show home tab, hide tools section
+    toolsSection.style.display = 'none';
 }
 
 // ============================================

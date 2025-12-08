@@ -24,7 +24,8 @@
                     <span class="logo-text">图片魔方</span>
                 </div>
                 <div class="nav-links">
-                    <a href="#compress" class="nav-link active" data-tab="compress">压缩</a>
+                    <a href="#home" class="nav-link active" data-tab="home">首页</a>
+                    <a href="#compress" class="nav-link" data-tab="compress">压缩</a>
                     <a href="#convert" class="nav-link" data-tab="convert">转换</a>
                     <a href="#crop" class="nav-link" data-tab="crop">裁切</a>
                 </div>
@@ -33,20 +34,97 @@
 
         <!-- 主内容区 -->
         <main class="main-content">
-            <!-- Hero 区域 - 紧凑版 -->
-            <section class="hero-compact">
-                <div class="hero-badges">
-                    <span class="badge">⚡ 极速处理</span>
-                    <span class="badge">🔒 隐私安全</span>
-                    <span class="badge">✨ 完全免费</span>
-                </div>
-                <p class="hero-note">所有图片处理均在浏览器本地完成，不会上传到服务器</p>
-            </section>
+            <!-- 首页面板 -->
+            <div id="home" class="tool-panel active">
+                <section class="hero">
+                    <div class="hero-background">
+                        <div class="hero-orb hero-orb-1"></div>
+                        <div class="hero-orb hero-orb-2"></div>
+                        <div class="hero-orb hero-orb-3"></div>
+                    </div>
+                    <div class="hero-content">
+                        <div class="hero-badge-top">
+                            <span class="badge-glow">✨ 100% 免费 · 无需注册 · 隐私安全</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">智能图片处理</span>
+                            <br>
+                            <span class="hero-title-sub">一站式解决方案</span>
+                        </h1>
+                        <p class="hero-subtitle">无损压缩 · 格式转换 · 精准裁切</p>
+                        <p class="hero-description">
+                            所有处理均在浏览器本地完成，图片不会上传到任何服务器<br>
+                            您的隐私，我们认真对待
+                        </p>
+                        <div class="hero-cta">
+                            <button class="btn btn-hero" data-goto="compress">
+                                <span>🚀</span> 立即开始
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="hero-features">
+                        <div class="feature-card">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">🗜️</div>
+                            </div>
+                            <h3>智能压缩</h3>
+                            <p>先进的压缩算法，在保持视觉质量的同时大幅减小文件大小，支持批量处理</p>
+                            <button class="feature-btn" data-goto="compress">开始压缩 →</button>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">🔄</div>
+                            </div>
+                            <h3>格式转换</h3>
+                            <p>支持 JPG、PNG、WebP、GIF 等多种格式互转，一键转换为最优格式</p>
+                            <button class="feature-btn" data-goto="convert">开始转换 →</button>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-glow"></div>
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">✂️</div>
+                            </div>
+                            <h3>精准裁切</h3>
+                            <p>自由裁切或选择预设比例，支持1寸、2寸证件照等常用尺寸</p>
+                            <button class="feature-btn" data-goto="crop">开始裁切 →</button>
+                        </div>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">⚡</div>
+                            <div class="stat-content">
+                                <span class="stat-value">极速</span>
+                                <span class="stat-label">本地处理</span>
+                            </div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🔒</div>
+                            <div class="stat-content">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-label">隐私保护</span>
+                            </div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-icon">💎</div>
+                            <div class="stat-content">
+                                <span class="stat-value">永久</span>
+                                <span class="stat-label">免费使用</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
             <!-- 工具区域 -->
             <section class="tools-section">
                 <!-- 压缩工具 -->
-                <div id="compress" class="tool-panel active">
+                <div id="compress" class="tool-panel">
                     <div class="tool-header">
                         <h2 class="tool-title">🗜️ 图片压缩</h2>
                         <p class="tool-description">智能压缩算法，在保持视觉质量的同时大幅减小文件大小</p>
