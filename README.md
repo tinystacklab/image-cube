@@ -48,7 +48,7 @@ A free, privacy-focused online image processing tool with compression, format co
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/image-cube.git
+git clone https://github.com/tinystacklab/image-cube.git
 cd image-cube
 ```
 

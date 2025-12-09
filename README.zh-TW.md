@@ -48,7 +48,7 @@
 
 1. 克隆倉庫：
 ```bash
-git clone https://github.com/yourusername/image-cube.git
+git clone https://github.com/tinystacklab/image-cube.git
 cd image-cube
 ```
 
